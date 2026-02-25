@@ -1,14 +1,15 @@
 # Bundestagsprotokoll-Checker
 
-Komfortable Anwendung zur Prüfung von Bundestagsprotokollen (PDF) auf bestimmte Inhalte.
+Interaktives Python-Programm zur Prüfung von Bundestagsprotokollen als PDF.
 
-## Neu: Grafische Oberfläche
+## Was das Programm macht
 
-Standardmäßig startet jetzt eine **GUI** mit:
-- Eingabefeld für PDF-Link (Bundestag)
-- optionaler lokaler PDF-Auswahl
-- Eingabefeld für Suchtext
-- Ergebnis-Tabelle mit **Seitenzahl** und **komplettem Absatz**
+1. Fragt **zuerst** nach dem PDF-Link zum Bundestagsdokument.
+2. Fragt danach nach dem gesuchten Text (String).
+3. Durchsucht das Dokument.
+4. Gibt pro Fundstelle aus:
+   - **Seitenzahl**
+   - **kompletten Absatz**
 
 ## Installation
 
@@ -18,17 +19,15 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Start (GUI)
+## Start
 
 ```bash
 python3 bundestag_protokoll_checker.py
 ```
 
-## Optional: CLI-Modus
-
-```bash
-python3 bundestag_protokoll_checker.py --cli
-```
+Danach die beiden Eingaben direkt im Terminal machen:
+- PDF-Link
+- Suchtext
 
 ## Hinweis
 
