@@ -29,6 +29,16 @@ Danach die beiden Eingaben direkt im Terminal machen:
 - PDF-Link
 - Suchtext
 
+## Grafische Oberfläche (GUI)
+
+Es gibt jetzt zusätzlich eine GUI-Version auf Basis von **Tkinter** (läuft auch unter Windows):
+
+```bash
+python3 bundestag_protokoll_checker_gui.py
+```
+
+In der Oberfläche kannst du PDF-Link und Suchtext eintragen und die Treffer direkt im Fenster ansehen.
+
 ## Hinweis
 
 Die Qualität der Treffer hängt von der Textauslesbarkeit der PDF ab (Layout/Scanqualität). Für redaktionelle Verifikation sollten Treffer immer im Originaldokument gegengeprüft werden.
