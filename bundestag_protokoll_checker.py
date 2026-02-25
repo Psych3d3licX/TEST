@@ -2,6 +2,10 @@
 """Interaktiver Checker für Bundestagsprotokolle (PDF).
 
 Ablauf:
+1) Fragt zuerst nach dem PDF-Link zum Bundestagsdokument.
+2) Fragt danach nach dem gesuchten Text (String).
+3) Sucht den Text im Dokument.
+4) Gibt Fundstellen mit Seitenzahl und komplettem Absatz aus.
 1) Fragt nach einem PDF-Link (Bundestag-Dokument)
 2) Fragt nach einem gesuchten Text/String
 3) Sucht den String im Dokument
@@ -50,6 +54,7 @@ def download_pdf(url: str) -> bytes:
             "Der Link liefert vermutlich keine PDF-Datei "
             f"(Content-Type: {content_type!r})."
         )
+
     return response.content
 
 
@@ -124,6 +129,7 @@ def main() -> int:
     except KeyboardInterrupt:
         print("\nAbbruch durch Benutzer.")
         return 130
+    except Exception as exc:
     except Exception as exc:  # zentrale CLI-Fehlerbehandlung
         print(f"Fehler: {exc}", file=sys.stderr)
         return 1
