@@ -6,6 +6,10 @@ Ablauf:
 2) Fragt danach nach dem gesuchten Text (String).
 3) Sucht den Text im Dokument.
 4) Gibt Fundstellen mit Seitenzahl und komplettem Absatz aus.
+1) Fragt nach einem PDF-Link (Bundestag-Dokument)
+2) Fragt nach einem gesuchten Text/String
+3) Sucht den String im Dokument
+4) Gibt Fundstellen mit Seitenzahl + komplettem Absatz aus
 """
 
 from __future__ import annotations
@@ -65,10 +69,12 @@ def extract_pages(pdf_bytes: bytes) -> list[str]:
 
 
 def split_paragraphs(page_text: str) -> list[str]:
+    # Primär: Absätze über Leerzeilen trennen
     by_blank_lines = [p.strip() for p in re.split(r"\n\s*\n+", page_text) if p.strip()]
     if by_blank_lines:
         return by_blank_lines
 
+    # Fallback: Falls PDF-Extraktion keine Leerzeilen enthält, ganze Seite als ein Absatz
     cleaned = page_text.strip()
     return [cleaned] if cleaned else []
 
@@ -124,6 +130,7 @@ def main() -> int:
         print("\nAbbruch durch Benutzer.")
         return 130
     except Exception as exc:
+    except Exception as exc:  # zentrale CLI-Fehlerbehandlung
         print(f"Fehler: {exc}", file=sys.stderr)
         return 1
 
